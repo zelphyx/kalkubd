@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan_git/LuasController.dart';
-import 'package:latihan_git/tabview.dart';
+import 'package:latihan_git/pagebangundatar/LuasController.dart';
 
-class LuasSegiempat extends StatefulWidget {
-  const LuasSegiempat({Key? key}) : super(key: key);
+class LuasJajarGenjang extends StatefulWidget {
+  const LuasJajarGenjang({Key? key}) : super(key: key);
 
   @override
-  State<LuasSegiempat> createState() => _LuasSegiempatState();
+  State<LuasJajarGenjang> createState() => _LuasJajarGenjangState();
 }
 
-class _LuasSegiempatState extends State<LuasSegiempat> {
-  TextEditingController ctrSisi = TextEditingController();
-  final LuasController controller = Get.put(LuasController());
+class _LuasJajarGenjangState extends State<LuasJajarGenjang> {
+  TextEditingController ctrAlas = TextEditingController();
+  TextEditingController ctrTinggi = TextEditingController();
+  final LuasController controller = Get.find();
 
   Widget myTextField(TextEditingController ctr, String myLabel) {
     return Container(
@@ -41,10 +41,10 @@ class _LuasSegiempatState extends State<LuasSegiempat> {
               children: [
                 Card(
 
-                  // Menggunakan Container untuk desain Card pertama
+
                   child: Container(
                     width: 342,
-                    height: 316,
+                    height: 300,
                     decoration: ShapeDecoration(
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -56,7 +56,7 @@ class _LuasSegiempatState extends State<LuasSegiempat> {
                         SizedBox(height: 10,),
                         Center(
                           child: Text(
-                            "Luas Persegi",
+                            "Luas JajarGenjang",
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -78,8 +78,7 @@ class _LuasSegiempatState extends State<LuasSegiempat> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12), // Border radius gambar
                           child: Image.asset(
-                            'asset/persegi.jpg', // Ganti dengan path gambar yang sesuai
-                             // Sesuaikan tinggi gambar
+                            'asset/jargen.jpg',
                             fit: BoxFit.cover, // Sesuaikan mode tampilan gambar
                           ),
                         ),
@@ -110,11 +109,13 @@ class _LuasSegiempatState extends State<LuasSegiempat> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        myTextField(ctrSisi, "Sisi (cm)"),
+                        myTextField(ctrAlas, "Alas (cm)"),
+                        myTextField(ctrTinggi, "Tinggi (cm)"),
                         ElevatedButton(
                           onPressed: () =>
-                              controller.luasSegiempat(
-                                double.parse(ctrSisi.text.toString()),
+                              controller.luasJajarGenjang(
+                                double.parse(ctrAlas.text.toString()),
+                                double.parse(ctrTinggi.text.toString()),
                               ),
                           child: Text("Hitung"),
                           style: ElevatedButton.styleFrom(
@@ -151,7 +152,7 @@ class _LuasSegiempatState extends State<LuasSegiempat> {
                         SizedBox(height: 10), // Jarak tambahan jika diperlukan
                         Obx(
                               () => Text(
-                            'Hasil: ${controller.hasilLuasSegiempat.value} cm²',
+                            'Hasil: ${controller.hasilLuasJajarGenjang.value} cm²',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -163,7 +164,36 @@ class _LuasSegiempatState extends State<LuasSegiempat> {
                     ),
                   ),
                 ),
-
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    width: 342,
+                    height: 100, // Sesuaikan tinggi container sesuai kebutuhan Anda
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(22),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Tambahkan kode untuk kembali ke halaman sebelumnya di sini
+                            Get.back(); // Ini akan kembali ke halaman sebelumnya menggunakan GetX
+                          },
+                          child: Text("Kembali"),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.transparent,
+                            onPrimary: Colors.black,
+                            side: BorderSide(color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

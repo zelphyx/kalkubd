@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan_git/LuasController.dart';
+import 'package:latihan_git/pagebangundatar/LuasController.dart';
 
 class LuasLingkaran extends StatefulWidget {
   const LuasLingkaran({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class LuasLingkaran extends StatefulWidget {
 
 class _LuasLingkaranState extends State<LuasLingkaran> {
   TextEditingController ctrjari = TextEditingController();
-  final LuasController controller = Get.put(LuasController());
+  final LuasController controller = Get.find();
 
   Widget myTextField(TextEditingController ctr, String myLabel) {
     return Container(
@@ -162,7 +162,36 @@ class _LuasLingkaranState extends State<LuasLingkaran> {
                     ),
                   ),
                 ),
-
+                Card(
+                  color: Colors.white,
+                  child: Container(
+                    width: 342,
+                    height: 100, // Sesuaikan tinggi container sesuai kebutuhan Anda
+                    decoration: ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(22),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Tambahkan kode untuk kembali ke halaman sebelumnya di sini
+                            Get.back(); // Ini akan kembali ke halaman sebelumnya menggunakan GetX
+                          },
+                          child: Text("Kembali"),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.transparent,
+                            onPrimary: Colors.black,
+                            side: BorderSide(color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_git/LuasJajarGenjang.dart';
-import 'package:latihan_git/LuasLingkaran.dart';
-import 'package:latihan_git/LuasPersegiPanjang.dart';
-import 'package:latihan_git/LuasSegiempat.dart';
-import 'package:latihan_git/LuasSegitiga.dart';
+import 'package:get/get.dart';
+import 'package:latihan_git/pagebangundatar/LuasJajarGenjang.dart';
+import 'package:latihan_git/pagebangundatar/LuasLingkaran.dart';
+import 'package:latihan_git/pagebangundatar/LuasPersegiPanjang.dart';
+import 'package:latihan_git/pagebangundatar/LuasSegiempat.dart';
+import 'package:latihan_git/pagebangundatar/LuasSegitiga.dart';
+import 'package:latihan_git/binding/Binding.dart';
+import 'package:latihan_git/Routes/PageRoutes.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -63,10 +66,7 @@ class MainScreen extends StatelessWidget {
               buttonText = "Luas Segitiga";
               button = ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LuasSegitiga()),
-                  );
+                  Get.toNamed("/segitiga");
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -84,14 +84,12 @@ class MainScreen extends StatelessWidget {
                 ),
               );
               break;
+
             case 1:
               buttonText = "Luas Segiempat";
               button = ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LuasSegiempat()),
-                  );
+                  Get.toNamed("/segiempat");
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -113,10 +111,7 @@ class MainScreen extends StatelessWidget {
               buttonText = "Luas Persegi Panjang";
               button = ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LuasPersegiPanjang()),
-                  );
+                  Get.toNamed("/persegipanjang");
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -138,10 +133,7 @@ class MainScreen extends StatelessWidget {
               buttonText = "Luas Jajar Genjang";
               button = ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LuasJajarGenjang()),
-                  );
+                  Get.toNamed("/jajargenjang");
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -163,10 +155,7 @@ class MainScreen extends StatelessWidget {
               buttonText = "Luas Lingkaran";
               button = ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LuasLingkaran()),
-                  );
+                  Get.toNamed("/lingkaran");
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,

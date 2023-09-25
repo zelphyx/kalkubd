@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan_git/LuasController.dart';
+import 'package:latihan_git/pagebangundatar/LuasController.dart';
+import 'package:latihan_git/tabview.dart';
 
-class LuasSegitiga extends StatefulWidget {
-  const LuasSegitiga({Key? key}) : super(key: key);
+class LuasSegiempat extends StatefulWidget {
+  const LuasSegiempat({Key? key}) : super(key: key);
 
   @override
-  State<LuasSegitiga> createState() => _LuasSegitigaState();
+  State<LuasSegiempat> createState() => _LuasSegiempatState();
 }
 
-class _LuasSegitigaState extends State<LuasSegitiga> {
-  TextEditingController ctrAlas = TextEditingController();
-  TextEditingController ctrTinggi = TextEditingController();
-  final LuasController controller = Get.put(LuasController());
+class _LuasSegiempatState extends State<LuasSegiempat> {
+  TextEditingController ctrSisi = TextEditingController();
+  final LuasController controller = Get.find();
 
   Widget myTextField(TextEditingController ctr, String myLabel) {
     return Container(
@@ -44,7 +44,7 @@ class _LuasSegitigaState extends State<LuasSegitiga> {
                   // Menggunakan Container untuk desain Card pertama
                   child: Container(
                     width: 342,
-                    height: 336,
+                    height: 316,
                     decoration: ShapeDecoration(
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -56,7 +56,7 @@ class _LuasSegitigaState extends State<LuasSegitiga> {
                         SizedBox(height: 10,),
                         Center(
                           child: Text(
-                            "Luas Segitiga",
+                            "Luas Persegi",
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -78,8 +78,8 @@ class _LuasSegitigaState extends State<LuasSegitiga> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12), // Border radius gambar
                           child: Image.asset(
-                            'asset/sgtg.jpg', // Ganti dengan path gambar yang sesuai
-
+                            'asset/persegi.jpg', // Ganti dengan path gambar yang sesuai
+                             // Sesuaikan tinggi gambar
                             fit: BoxFit.cover, // Sesuaikan mode tampilan gambar
                           ),
                         ),
@@ -110,13 +110,11 @@ class _LuasSegitigaState extends State<LuasSegitiga> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        myTextField(ctrAlas, "Alas (cm)"),
-                        myTextField(ctrTinggi, "Tinggi (cm)"),
+                        myTextField(ctrSisi, "Sisi (cm)"),
                         ElevatedButton(
                           onPressed: () =>
-                              controller.luasSegitiga(
-                                double.parse(ctrAlas.text.toString()),
-                                double.parse(ctrTinggi.text.toString()),
+                              controller.luasSegiempat(
+                                double.parse(ctrSisi.text.toString()),
                               ),
                           child: Text("Hitung"),
                           style: ElevatedButton.styleFrom(
@@ -153,7 +151,7 @@ class _LuasSegitigaState extends State<LuasSegitiga> {
                         SizedBox(height: 10), // Jarak tambahan jika diperlukan
                         Obx(
                               () => Text(
-                            'Hasil: ${controller.hasilLuasSegitiga.value} cm²',
+                            'Hasil: ${controller.hasilLuasSegiempat.value} cm²',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
